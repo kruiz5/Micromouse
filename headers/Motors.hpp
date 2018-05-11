@@ -1,8 +1,9 @@
 //Motor header file
-#pragma once
+#ifndef MOTORS_HEADER
+#define MOTORS_HEADER
 
-int motorSpeedL = 127;
-int motorSpeedR = 127;
+extern int motorSpeedL;
+extern int motorSpeedR;
 
 void motorSetup(); //declare motor pin connections
 void turnRight();
@@ -11,3 +12,5 @@ void turnLeft();
 void halt();
 void moveBackwards();
 void turnAround();
+
+#endif

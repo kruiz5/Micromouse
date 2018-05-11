@@ -5,10 +5,13 @@
 #include <PID_v1.h>
 #include "../headers/Motors.hpp"
 #include "../headers/macros.hpp"
-#include "../headers/PID.hpp"
 #include "../headers/Encoders.hpp"
+#include "../headers/PID.hpp"
+
+double encLeftCounter, encRightCounter, newMotorSpeedL;
 
 PID encPID = PID(&encLeftCounter, &newMotorSpeedL, &encRightCounter, 1, .05, .25, DIRECT);
+
 
 void PIDsetup() {
 	encLeftCounter = encL;
@@ -20,5 +23,5 @@ void runPID() {
 	encLeftCounter = encL;
 	encRightCounter = encR;
 	encPID.Compute();
-	motorSpeedL = newMotorSpeedL;
+	motorSpeedL = (int)newMotorSpeedL;
 }

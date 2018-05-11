@@ -3,6 +3,8 @@
 #include "../headers/Motors.hpp"
 #include "../headers/macros.hpp"
 
+int motorSpeedL, motorSpeedR; 
+
 void motorSetup() {
   motorSpeedL = 127;
   motorSpeedR = 127;

@@ -1,9 +1,12 @@
-//PID header
-#pragma once
+//PID header file
+#ifndef PID_HEADER
+#define PID_HEADER
 
-double encLeftCounter; //PID input
-double newMotorSpeedL; //PID output
-double encRightCounter; //PID setpoint
+extern double encLeftCounter; //PID input
+extern double newMotorSpeedL; //PID output
+extern double encRightCounter; //PID setpoint
 
 void PIDsetup();
 void runPID();
+
+#endif

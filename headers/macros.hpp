@@ -1,5 +1,6 @@
 //macros header file
-#pragma once
+#ifndef MACROS_HEADER
+#define MACROS_HEADER
 
 //pins for emitter and receiver pointing front right
 #define R1 A1
@@ -30,3 +31,5 @@
 //left and right encoders
 #define left_encoder 2
 #define right_encoder 8
+
+#endif

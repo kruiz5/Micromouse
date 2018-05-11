@@ -2,17 +2,21 @@
 #include <Arduino.h>
 #include "../headers/Encoders.hpp"
 
+int encL, encR ;
+
 void encoderSetup(){
 	pinMode(left_encoder, INPUT);
 	pinMode(right_encoder, INPUT);	
+	encL = 0;
+	encR = 0;
 }
 
 void incLeft(){
-	encL += 1;
+	encL ++;
 }
 
 void incRight(){
-	encR += 1;
+	encR ++;
 }
 
 void setupInterrupts() {
