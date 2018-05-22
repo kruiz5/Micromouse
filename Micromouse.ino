@@ -9,40 +9,37 @@ void setup() {
   encoderSetup();
   setupInterrupts();
   PIDsetup();  
+  Serial.begin(9600);
 }
-
+/*
+//main
 void loop() {
-  int frontLeft, left, right, frontRight;
-  moveForward();
-  runPID();
-  
-  frontLeft = getFrontLeft();
-  left = getLeft();
-  right = getRight();
-  frontRight = getFrontRight();
-
-  //wall in front and right ===> turn left
-  if (frontLeft >= 35 && frontRight >= 120 && right >= 120 && left < 170) {
-    turnLeft();
-    delay(3000);
-    halt();
-  }
-  //wall in front and left ====> turn right
-  else if (frontLeft >= 35 && frontRight >= 120 && right < 120 && left >= 170) {
-    turnRight();
-    delay(3000);
-    halt();
-  }
-  //wall in front and left and right  ====> turnAround
-  else if  (frontLeft >= 35 && frontRight >= 120 && right >= 120 && left >= 170) {
-    turnAround();
-    delay(3000);
-    halt();
-  }
-  //wall only in front ===> default turn right
-  else if (frontLeft >= 35 && frontRight >= 120 && right < 120 && left < 170 {
-    turnRight();
-    delay(3000);
-    halt();
-  }
+  readSensors();
+  detectWalls();
+  turnDecision();
+  moveOneCell();
 }
+*/
+
+/*
+//test sensor readings and walls
+void loop() {
+  readSensors();
+  printSensorValues();
+  printWalls();
+}
+*/
+
+//test PID and cell movement
+void loop() {  
+ moveOneCell();
+ delay(3000);
+}
+
+
+/*
+//test wheel turn with encoder print values
+void loop() {
+  turnLeft();
+}
+*/

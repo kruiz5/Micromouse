@@ -9,19 +9,29 @@
 #include "../headers/PID.hpp"
 
 double encLeftCounter, encRightCounter, newMotorSpeedL;
-
-PID encPID = PID(&encLeftCounter, &newMotorSpeedL, &encRightCounter, 1, .05, .25, DIRECT);
+double kP = 3; //ok 3
+double kI = .25; // kI < .25 goes left. kI > .25 goes right 
+double kD = .05; // idk 
+PID encPID = PID(&encLeftCounter, &newMotorSpeedL, &encRightCounter, kP, kI, kD, DIRECT);
 
 
 void PIDsetup() {
-	encLeftCounter = encL;
-	encRightCounter = encR;
+	encLeftCounter = encValLeft;
+	encRightCounter = encValRight;
 	encPID.SetMode(AUTOMATIC);
 }
 
 void runPID() {
-	encLeftCounter = encL;
-	encRightCounter = encR;
+	encLeftCounter = encValLeft;
+	encRightCounter = encValRight;
 	encPID.Compute();
 	motorSpeedL = (int)newMotorSpeedL;
+}
+
+void turnOnPID() {
+	encPID.SetMode(AUTOMATIC);
+}
+
+void turnOffPID() {
+	encPID.SetMode(MANUAL);
 }

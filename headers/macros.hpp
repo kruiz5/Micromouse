@@ -28,8 +28,15 @@
 #define motorR_Forward 4
 #define motorR_Reverse 9
 
-//left and right encoders
-#define left_encoder 2
-#define right_encoder 8
+//A and B channels for both encoders
+#define EncoderL_A 2	
+#define EncoderL_B 5
+#define EncoderR_A 8
+#define EncoderR_B 11
+
+//speeds
+#define moveSpeed 50
+#define turnSpeed 50
+#define maxSpeed 70
 
 #endif
